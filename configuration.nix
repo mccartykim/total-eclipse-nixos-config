@@ -108,10 +108,12 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      wget
-      git
+  environment.systemPackages = [
+      pkgs.neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      pkgs.wget
+      pkgs.git
+      home-manager.
+
   ];
 
   services.tailscale.enable = true;
@@ -134,6 +136,7 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  networking.interfaces.eno2.wakeOnLan.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
