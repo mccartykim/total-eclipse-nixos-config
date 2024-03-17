@@ -54,7 +54,7 @@
   programs.zoxide.enable = true;
 
   programs.tmux = {
-
+    enable = true;
   };
 
   # Nicely reload system units when changing configs
