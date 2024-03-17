@@ -95,6 +95,7 @@
     isNormalUser = true;
     description = "Kimberly";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = with pkgs; [
       firefox
       tealdeer
@@ -115,6 +116,8 @@
   ];
 
   services.tailscale.enable = true;
+  
+  programs.fish.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -52,6 +52,7 @@
   programs.git.enable = true;
 
   programs.zoxide.enable = true;
+  programs.fish.enable = true;
 
   programs.tmux = {
     enable = true;
