@@ -15,7 +15,7 @@
 
   fileSystems."/" = 
     {
-      device = "/dev/disk/by-label/NIXOS-GNOME";
+      device = "/dev/disk/by-uuid/8b0dcc85-20c4-4bf4-add1-6973bbf9ff9e";
       fsType = "ext4";
     };
 
