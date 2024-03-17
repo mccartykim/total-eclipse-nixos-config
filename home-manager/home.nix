@@ -55,6 +55,15 @@
   programs.fish.enable = true;
   programs.atuin.enable = true;
 
+  programs.nixvim = {
+    enable = true;
+    plugins.lightline.enable = true;
+    options = {
+      number = true;
+      shiftwidth = 2;
+    };
+  };
+
   programs.tmux = {
     enable = true;
   };

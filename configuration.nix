@@ -138,6 +138,8 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
   networking.interfaces.eno2.wakeOnLan.enable = true;
+  networking.interfaces.eno2.wakeOnLan.policy = [ "unicast" ];
+  
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

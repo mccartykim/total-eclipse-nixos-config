@@ -10,12 +10,21 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # nix-colors.url = "github:misterio77/nix-colors";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
+      # url = "github:nix-community/nixvim/nixos-23.05";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -26,7 +35,9 @@
       total-eclipse = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
-        modules = [./configuration.nix];
+        modules = [
+	  ./configuration.nix
+	];
       };
     };
 
@@ -37,7 +48,10 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
-        modules = [./home-manager/home.nix];
+        modules = [
+	  nixvim.homeManagerModules.nixvim
+	  ./home-manager/home.nix
+	];
       };
     };
   };
