@@ -68,6 +68,17 @@
     enable = true;
   };
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+    enableNvidiaPatches = true;
+    settings = {
+      "$mod" = "SUPER";
+      bind = [
+	"$mod, F, exec, firefox";
+      ];
+    };
+  };
+  
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
