@@ -53,6 +53,7 @@
 
   programs.zoxide.enable = true;
   programs.fish.enable = true;
+  programs.atuin.enable = true;
 
   programs.tmux = {
     enable = true;
