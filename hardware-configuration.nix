@@ -13,12 +13,11 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/cc86f936-5ed1-43ed-9919-e44f6e1eb4f8";
+  fileSystems."/" = 
+    {
+      device = "/dev/disk/by-label/NIXOS-GNOME";
       fsType = "ext4";
     };
-
-  boot.initrd.luks.devices."luks-c48751a7-0d86-48c4-b007-edabdc782fe6".device = "/dev/disk/by-uuid/c48751a7-0d86-48c4-b007-edabdc782fe6";
 
   swapDevices = [ ];
 
@@ -28,6 +27,7 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.eno2.useDHCP = lib.mkDefault true;
+  # networking.interfaces.tailscale0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

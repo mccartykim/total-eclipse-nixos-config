@@ -16,7 +16,7 @@
     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
   ];
   nix.settings.substituters = [
-    "cache.garnix.io"
+    "https://cache.garnix.io"
   ];
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -26,14 +26,6 @@
   # Nvidia Drivers
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
-  boot.loader.grub.enableCryptodisk=true;
-
-  boot.initrd.luks.devices."luks-c48751a7-0d86-48c4-b007-edabdc782fe6".keyFile = "/crypto_keyfile.bin";
   networking.hostName = "total-eclipse"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -99,7 +91,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kimberly = {
+  users.users.kimb = {
     isNormalUser = true;
     description = "Kimberly";
     extraGroups = [ "networkmanager" "wheel" ];
