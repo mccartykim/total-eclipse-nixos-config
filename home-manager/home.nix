@@ -61,7 +61,7 @@
     options = {
       number = true;
       shiftwidth = 2;
-      smartTab = true;
+      smarttab = true;
     };
   };
 

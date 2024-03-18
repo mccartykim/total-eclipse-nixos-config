@@ -120,7 +120,9 @@
       pkgs.git
       pkgs.hyprland
       pkgs.steam
+      pkgs.legendary-gl
   ];
+
 
   services.tailscale.enable = true;
   
