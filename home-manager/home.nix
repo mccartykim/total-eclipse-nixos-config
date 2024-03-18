@@ -45,7 +45,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ steam sunshine ];
+  home.packages = with pkgs; [ sunshine ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -61,6 +61,7 @@
     options = {
       number = true;
       shiftwidth = 2;
+      smartTab = true;
     };
   };
 

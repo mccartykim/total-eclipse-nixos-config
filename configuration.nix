@@ -22,6 +22,12 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.useOSProber = true;
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
   
   # Nvidia Drivers
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -99,7 +105,6 @@
     packages = with pkgs; [
       firefox
       tealdeer
-      
     #  thunderbird
     ];
   };
@@ -113,6 +118,8 @@
       pkgs.neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       pkgs.wget
       pkgs.git
+      pkgs.hyprland
+      pkgs.steam
   ];
 
   services.tailscale.enable = true;
