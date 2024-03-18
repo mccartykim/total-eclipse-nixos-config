@@ -61,6 +61,7 @@
     options = {
       number = true;
       shiftwidth = 2;
+      smartindent = true;
       smarttab = true;
     };
   };
