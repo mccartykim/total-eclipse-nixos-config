@@ -121,6 +121,7 @@
       pkgs.hyprland
       pkgs.steam
       pkgs.legendary-gl
+      pkgs.sunshine
   ];
 
 
