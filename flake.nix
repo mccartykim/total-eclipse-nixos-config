@@ -28,6 +28,7 @@
     nixpkgs,
     home-manager,
     nixvim,
+    jovian,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -42,12 +43,30 @@
 	  ./total-eclipse/configuration.nix
 	];
       };
+
+      steam-deck = nixpkgs.lib.nixosSystem {
+	specialArgs = { inherit inputs outputs; };
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+	modules = [
+	  jovian.nixosModules.jovian
+	  ./steam-deck/configuration.nix
+	];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       "kimb@total-eclipse" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        # > Our main home-manager configuration file <
+        modules = [
+	  nixvim.homeManagerModules.nixvim
+	  ./home-manager/home.nix
+	];
+      };
+      "kimb@steamdeck" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
