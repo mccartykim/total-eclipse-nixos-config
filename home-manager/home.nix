@@ -45,7 +45,9 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [ 
+    nil
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -58,6 +60,7 @@
   programs.nixvim = {
     enable = true;
     plugins.lightline.enable = true;
+    plugins.treesitter.enable = true;
     options = {
       number = true;
       shiftwidth = 2;
@@ -68,6 +71,8 @@
 
   programs.tmux = {
     enable = true;
+    mouse = true;
+    keyMode = "vi";
   };
 
   wayland.windowManager.hyprland = {
