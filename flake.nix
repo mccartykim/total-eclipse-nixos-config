@@ -39,7 +39,7 @@
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
         modules = [
-	  ./configuration.nix
+	  ./total-eclipse/configuration.nix
 	];
       };
     };
